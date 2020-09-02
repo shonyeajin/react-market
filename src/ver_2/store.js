@@ -36,6 +36,17 @@ export default createStore(function (state, action) {
       final_sum: 0,
       cardPay: 0,
       cashPay: 0,
+      category: [
+        {
+          bigCate: "패션의류/잡화",
+          midCate: ["신발", "냄비프라이펜", "주방조리도구"],
+        },
+        { bigCate: "뷰티", midCate: ["블러셔", "브러쉬", "립"] },
+        { bigCate: "유아동", midCate: ["공", "애기", "미끄럼틀"] },
+        { bigCate: "주방용품", midCate: ["국자", "숟가락", "젓가락"] },
+        { bigCate: "문구/오피스", midCate: ["연필", "볼펜", "지우개"] },
+      ],
+      registerItems: [],
     };
   }
 
@@ -53,6 +64,10 @@ export default createStore(function (state, action) {
   }
   if (action.type === "PAYMENT") {
     return { ...state, cardPay: action.cardPay, cashPay: action.cashPay };
+  }
+  if (action.type === "REGISTER") {
+    var _registerItems = [...state.registerItems, action.item];
+    return { ...state, registerItems: _registerItems };
   }
   return state;
 }, window.__REDUX_DEVTOOLS_EXTENSION__ &&

@@ -105,6 +105,11 @@ export default class Paying extends Component {
             <input type="submit" value="결제하기"></input>
           </form>
         </article>
+        <br />
+        <br />
+        <Link to="/">
+          <input type="button" value="Home으로 이동"></input>
+        </Link>
       </div>
     );
   }

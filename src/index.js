@@ -14,6 +14,7 @@ import Paying from "./containers/Paying";
 import App_test from "./redux_test/App_test";
 import { Provider } from "react-redux";
 import store from "./ver_2/store";
+import RegisterPage from "./containers/RegisterPage";
 import {
   BrowserRouter,
   Route,
@@ -28,6 +29,8 @@ function PAGES() {
       <Switch>
         <Route exact path="/" component={Buying}></Route>
         <Route path="/paying" component={Paying}></Route>
+        <Route path="/login" component={Login}></Route>
+        <Route path="/registerPage" component={RegisterPage}></Route>
       </Switch>
     </div>
   );
