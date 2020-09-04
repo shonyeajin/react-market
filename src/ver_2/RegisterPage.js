@@ -6,7 +6,60 @@ export default class RegisterPage extends Component {
   state = {
     selected_bigItem: "",
     selected_midItem: "",
+    mode_B: "before",
+    mode_M: "before",
   };
+
+  showAddTool_Mid() {
+    if (this.state.mode_M === "after") {
+      return (
+        <div>
+          <form
+            onSubmit={function (e) {
+              e.preventDefault();
+              if (
+                e.target.midCate.value !== "" &&
+                this.state.selected_bigItem !== ""
+              ) {
+                //입력이 null이 아니고 selected_bigItem이 존재하면 함수 호출
+                //this.props.addBigCate(e.target.bigCate.value);
+                this.props.addMidCate(
+                  this.state.selected_bigItem,
+                  e.target.midCate.value
+                );
+              }
+              this.setState({ mode_M: "before" });
+            }.bind(this)}
+          >
+            <input type="text" placeholder="중분류 추가" name="midCate"></input>
+            <input type="submit" value="등록"></input>
+          </form>
+        </div>
+      );
+    }
+  }
+
+  showAddTool_Big() {
+    if (this.state.mode_B === "after") {
+      return (
+        <div>
+          <form
+            onSubmit={function (e) {
+              e.preventDefault();
+              if (e.target.bigCate.value !== "") {
+                this.props.addBigCate(e.target.bigCate.value);
+              }
+              this.setState({ mode_B: "before" });
+            }.bind(this)}
+          >
+            <input type="text" placeholder="대분류 추가" name="bigCate"></input>
+            <input type="submit" value="등록"></input>
+          </form>
+        </div>
+      );
+    }
+  }
+
   showingBig() {
     var data = this.props.category;
     var lists = [];
@@ -25,7 +78,19 @@ export default class RegisterPage extends Component {
       );
       i++;
     }
-    return <div>{lists}</div>;
+    return (
+      <div>
+        {lists}
+        <input
+          type="button"
+          value="+"
+          onClick={function (e) {
+            this.setState({ mode_B: "after" });
+          }.bind(this)}
+        ></input>
+        {this.showAddTool_Big()}
+      </div>
+    );
   }
   showingMid() {
     var data = this.props.category;
@@ -50,7 +115,19 @@ export default class RegisterPage extends Component {
       }
       i++;
     }
-    return <div>{lists}</div>;
+    return (
+      <div>
+        {lists}
+        <input
+          type="button"
+          value="+"
+          onClick={function (e) {
+            this.setState({ mode_M: "after" });
+          }.bind(this)}
+        ></input>
+        {this.showAddTool_Mid()}
+      </div>
+    );
   }
 
   render() {
@@ -81,10 +158,16 @@ export default class RegisterPage extends Component {
               }.bind(this)}
             >
               <input type="text" placeholder="상품명" name="name"></input>
+              <br />
               <input type="text" placeholder="가격" name="price"></input>
+              <br />
               <input type="text" placeholder="수량" name="amount"></input>
+              <br />
+              <br />
               <input type="submit" value="등록"></input>
             </form>
+            <br />
+            <text>ID값</text>
           </div>
         </div>
       </div>

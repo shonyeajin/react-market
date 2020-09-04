@@ -69,6 +69,15 @@ export default createStore(function (state, action) {
     var _registerItems = [...state.registerItems, action.item];
     return { ...state, registerItems: _registerItems };
   }
+  if (action.type === "ADD_BIG") {
+    var _category = [...state.category, action.item];
+    return { ...state, category: _category };
+  }
+  if (action.type === "ADD_MID") {
+    var _category2 = [...state.category];
+    _category2[action.i] = action.item_2;
+    return { ...state, category: _category2 };
+  }
   return state;
 }, window.__REDUX_DEVTOOLS_EXTENSION__ &&
   window.__REDUX_DEVTOOLS_EXTENSION__());
