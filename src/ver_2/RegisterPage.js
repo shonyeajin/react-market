@@ -72,6 +72,11 @@ export default class RegisterPage extends Component {
           onClick={function (e) {
             this.setState({ selected_bigItem: e.target.dataset.id });
           }.bind(this)}
+          className={
+            this.state.selected_bigItem === data[i].bigCate
+              ? "active"
+              : "notActive"
+          }
         >
           {data[i].bigCate}
         </h5>
@@ -106,6 +111,11 @@ export default class RegisterPage extends Component {
               onClick={function (e) {
                 this.setState({ selected_midItem: e.target.dataset.id });
               }.bind(this)}
+              className={
+                this.state.selected_midItem === data[i].midCate[j]
+                  ? "active"
+                  : "notActive"
+              }
             >
               {data[i].midCate[j]}
             </h5>
