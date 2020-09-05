@@ -47,6 +47,7 @@ export default createStore(function (state, action) {
         { bigCate: "문구/오피스", midCate: ["연필", "볼펜", "지우개"] },
       ],
       registerItems: [],
+      apprItem: [],
     };
   }
 
@@ -77,6 +78,10 @@ export default createStore(function (state, action) {
     var _category2 = [...state.category];
     _category2[action.i] = action.item_2;
     return { ...state, category: _category2 };
+  }
+  if (action.type === "ADD_APPR_ITEM") {
+    var _apprItem = [...state.apprItem, action.apprItem];
+    return { ...state, apprItem: _apprItem };
   }
   return state;
 }, window.__REDUX_DEVTOOLS_EXTENSION__ &&
