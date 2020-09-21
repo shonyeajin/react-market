@@ -48,6 +48,56 @@ export default createStore(function (state, action) {
       ],
       registerItems: [],
       apprItem: [],
+      serching_contents: [
+        {
+          id: "42534",
+          name: "식탁",
+          price: 1000,
+          sale: 30,
+          location: "1층메인",
+          company: "동묘구제샵",
+        },
+        {
+          id: "2345",
+          name: "물뿌리개",
+          price: 2000,
+          sale: 20,
+          location: "1층복도",
+          company: "남원가구",
+        },
+        {
+          id: "23456",
+          name: "숟가락",
+          price: 4000,
+          sale: 10,
+          location: "1층왼쪽",
+          company: "나도예시",
+        },
+        {
+          id: "6745",
+          name: "거울",
+          price: 4430,
+          sale: 10,
+          location: "1층오른쪽",
+          company: "제주정밀",
+        },
+        {
+          id: "3245",
+          name: "팔찌",
+          price: 8348,
+          sale: 50,
+          location: "1층메인",
+          company: "삼호물산",
+        },
+        {
+          id: "4356",
+          name: "그릇",
+          price: 8000,
+          sale: 30,
+          location: "1층왼쪽",
+          company: "동묘구제샵",
+        },
+      ],
     };
   }
 

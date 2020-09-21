@@ -16,6 +16,8 @@ import { Provider } from "react-redux";
 import store from "./ver_2/store";
 import RegisterPage from "./containers/RegisterPage";
 import LeavingPage from "./containers/LeavingPage";
+import SearchingPage from "./containers/SearchingPage";
+
 import {
   BrowserRouter,
   Route,
@@ -33,6 +35,7 @@ function PAGES() {
         <Route path="/login" component={Login}></Route>
         <Route path="/registerPage" component={RegisterPage}></Route>
         <Route path="/leavingPage" component={LeavingPage}></Route>
+        <Route path="/searchingPage" component={SearchingPage}></Route>
       </Switch>
     </div>
   );
