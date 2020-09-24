@@ -10,11 +10,101 @@ export default class SearchingPage extends Component {
   };
   show_searching_content() {
     if (this.state.mode === 1) {
+      var data = this.props.searching_contents;
+      var i = 0;
+      var lists = [];
+      if (this.state.searching_category === "name") {
+        while (i < data.length) {
+          if (data[i].name === this.state.searching_input_text) {
+            lists.push(
+              <h5 className="white">
+                <text>ID:{data[i].id}</text>
+                <br />
+                <text>NAME:{data[i].name}</text>
+                <br />
+                <text>PRICE:{data[i].price}</text>
+                <br />
+                <text>SALE:{data[i].sale}</text>
+                <br />
+                <text>LOCATION:{data[i].location}</text>
+                <br />
+                <text>COMPANY:{data[i].company}</text>
+              </h5>
+            );
+          }
+          i++;
+        }
+      }
+      if (this.state.searching_category === "id") {
+        while (i < data.length) {
+          if (data[i].id === this.state.searching_input_text) {
+            lists.push(
+              <h5 className="white">
+                <text>ID:{data[i].id}</text>
+                <br />
+                <text>NAME:{data[i].name}</text>
+                <br />
+                <text>PRICE:{data[i].price}</text>
+                <br />
+                <text>SALE:{data[i].sale}</text>
+                <br />
+                <text>LOCATION:{data[i].location}</text>
+                <br />
+                <text>COMPANY:{data[i].company}</text>
+              </h5>
+            );
+          }
+          i++;
+        }
+      }
+      if (this.state.searching_category === "location") {
+        while (i < data.length) {
+          if (data[i].location === this.state.searching_input_text) {
+            lists.push(
+              <h5 className="white">
+                <text>ID:{data[i].id}</text>
+                <br />
+                <text>NAME:{data[i].name}</text>
+                <br />
+                <text>PRICE:{data[i].price}</text>
+                <br />
+                <text>SALE:{data[i].sale}</text>
+                <br />
+                <text>LOCATION:{data[i].location}</text>
+                <br />
+                <text>COMPANY:{data[i].company}</text>
+              </h5>
+            );
+          }
+          i++;
+        }
+      }
+      if (this.state.searching_category === "company") {
+        while (i < data.length) {
+          if (data[i].company === this.state.searching_input_text) {
+            lists.push(
+              <h5 className="white">
+                <text>ID:{data[i].id}</text>
+                <br />
+                <text>NAME:{data[i].name}</text>
+                <br />
+                <text>PRICE:{data[i].price}</text>
+                <br />
+                <text>SALE:{data[i].sale}</text>
+                <br />
+                <text>LOCATION:{data[i].location}</text>
+                <br />
+                <text>COMPANY:{data[i].company}</text>
+              </h5>
+            );
+          }
+          i++;
+        }
+      }
       return (
         <div>
           <h2>검색한 물건 컨텐츠 보여주기</h2>
-          <h5>{this.state.searching_category}</h5>
-          <h5>{this.state.searching_input_text}</h5>
+          <h2>{lists}</h2>
         </div>
       );
     }

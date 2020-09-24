@@ -48,7 +48,7 @@ export default createStore(function (state, action) {
       ],
       registerItems: [],
       apprItem: [],
-      serching_contents: [
+      searching_contents: [
         {
           id: "42534",
           name: "식탁",
